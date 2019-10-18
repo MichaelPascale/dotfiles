@@ -1,2 +1,2 @@
-# sh
-Miscellaneous shell scripts for my system.
+# dotfiles
+Config files, scripts, etc.
