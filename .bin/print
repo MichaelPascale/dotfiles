@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ $# -ne 2 ];
+then
+    echo "Usage: print [PDF] [STUDENT ID]"
+    exit
+fi
+ps2pdf $1 ~/.temp.pdf
+lpr -P HP_BW -U $2 ~/.temp.pdf
+rm ~/.temp.pdf
