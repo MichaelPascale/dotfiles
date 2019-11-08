@@ -1,0 +1,58 @@
+XTerm.vt100.scrollBar: false
+XTerm*faceName: IBM Plex Mono
+XTerm*faceSize: 11
+
+! --- special colors ---
+
+*background: #ffffff
+*foreground: #1c1c1c
+
+! --- standard colors ---
+
+! black
+*color0: #1c1c1c
+
+! bright_black
+*color8: #373737
+
+! red
+*color1: #ca3b47
+
+! bright_red
+*color9: #dc7d85
+
+! green
+*color2: #47ca3b
+
+! bright_green
+*color10: #85dc7d
+
+! yellow
+*color3: #cabe3b
+
+! bright_yellow
+*color11: #dcd47d
+
+! blue
+*color4: #3b47ca
+
+! bright_blue
+*color12: #7d85dc
+
+! magenta
+*color5: #be3bca
+
+! bright_magenta
+*color13: #d47ddc
+
+! cyan
+*color6: #3bcabe
+
+! bright_cyan
+*color14: #7ddcd4
+
+! white
+*color7: #888888
+
+! bright_white
+*color15: #ffffff

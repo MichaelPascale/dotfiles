@@ -1,0 +1,6 @@
+rofi.font: IBM PLex Mono 10
+rofi.hide-scrollbar: true
+rofi.lines: 6
+rofi.separator-style: none
+rofi.padding: 40
+rofi.theme: theme

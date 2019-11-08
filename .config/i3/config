@@ -1,0 +1,195 @@
+# === Colours ===
+
+set $base00 #254e50
+set $base01 #3c3836
+set $base02 #504945
+set $base03 #665c54
+set $base04 #bdae93
+set $base05 #d5c4a1
+set $base06 #ebdbb2
+set $base07 #fbf1c7
+set $base08 #fb4934
+set $base09 #fe8019
+set $base0A #fabd2f
+set $base0B #b8bb26
+set $base0C #8ec07c
+set $base0D #83a598
+set $base0E #131313
+set $base0F #d65d0e
+
+# === Variables ===
+# 37c670
+# ed6f5b
+# ff2f2f
+# 282828
+
+set $mod      Mod4
+set $terminal xterm
+set $lockscreen "i3lock -i ~/.wallpaper_lockscreen.png -e -f -t"
+
+set $W1       "1 One"
+set $W2       "2 Two"
+set $W3       "3 Three"
+set $W4       "4 Four"
+set $W5       "5 Five"
+set $W6       "6 Six"
+set $W7       "7 Seven"
+set $W8       "8 Eight"
+set $W9       "9 Nine"
+set $W10      "10 Ten"
+
+# === Appearance ===
+# for swaywm version, no feh
+#output "*" background ~/.bg.png fill
+
+# - Font -
+font pango:Cousine 8
+
+# - Titlebars -
+default_border pixel 1
+
+# - Gaps -
+# for i3gaps or swaywm version
+#smart_gaps true
+gaps inner 10
+gaps outer 10
+
+
+# - Colours -
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base0E $base0D $base00 $base0E $base0E
+client.focused_inactive $base01 $base01 $base05 $base01 $base01
+client.unfocused        $base00 $base00 $base05 $base00 $base00
+client.urgent           $base0F $base0F $base00 $base0F $base0F
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background       $base07
+
+# === Keybindings ===
+
+# - Window Manipulation -
+floating_modifier $mod
+bindsym $mod+Shift+q kill
+
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# - Movement -
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+x resize set 400 200
+bindsym $mod+Shift+x resize set 500 500
+
+bindsym $mod+z resize set 1050 728
+bindsym $mod+Shift+z resize set 1346 728
+
+bindsym $mod+b move window absolute position 20 20
+bindsym $mod+Shift+b move window absolute position 20 220
+
+bindsym $mod+n move window absolute position center
+bindsym $mod+Shift+n move window absolute position 550 220
+
+bindsym $mod+m move window absolute position 550 20
+bindsym $mod+Shift+m move window absolute position 550 220
+
+
+# - Layouts - 
+bindsym $mod+c splith
+bindsym $mod+v splitv
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# - Floating/Fullscreen -
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+a focus mode_toggle
+bindsym $mod+f fullscreen toggle
+
+# - Resizing -
+bindsym $mod+y resize shrink width 10 px or 10 ppt
+bindsym $mod+u resize grow height 10 px or 10 ppt
+bindsym $mod+i resize shrink height 10 px or 10 ppt
+bindsym $mod+o resize grow width 10 px or 10 ppt
+
+# - Opening Programs -
+bindsym $mod+Return exec $terminal
+bindsym $mod+space exec rofi -show run
+bindsym $mod+Escape exec $lockscreen
+bindsym Print exec scrot
+
+
+# - Reloading -
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+Escape exit
+
+# Helpers
+bindsym $mod+t exec --no-startup-id notify-send "$(date) <br> $(~/.bin/bat)"
+
+# === Workspaces ===
+bindsym $mod+1 workspace $W1
+bindsym $mod+2 workspace $W2
+bindsym $mod+3 workspace $W3
+bindsym $mod+4 workspace $W4
+bindsym $mod+5 workspace $W5
+bindsym $mod+6 workspace $W6
+bindsym $mod+7 workspace $W7
+bindsym $mod+8 workspace $W8
+bindsym $mod+9 workspace $W9
+bindsym $mod+0 workspace $W10
+
+bindsym $mod+Shift+1 move container to workspace $W1
+bindsym $mod+Shift+2 move container to workspace $W2
+bindsym $mod+Shift+3 move container to workspace $W3
+bindsym $mod+Shift+4 move container to workspace $W4
+bindsym $mod+Shift+5 move container to workspace $W5
+bindsym $mod+Shift+6 move container to workspace $W6
+bindsym $mod+Shift+7 move container to workspace $W7
+bindsym $mod+Shift+8 move container to workspace $W8
+bindsym $mod+Shift+9 move container to workspace $W9
+bindsym $mod+Shift+0 move container to workspace $W10
+
+# === Miscellaneous ===-
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+
+for_window [class="pop-up"] floating enable
+for_window [class="pop-up"] resize set 800 600
+for_window [class="pop-up"] move window absolute position center
+
+for_window [class="XTerm"] floating enable
+for_window [class="XTerm"] move window absolute position 550 220
+
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Pavucontrol"] resize set 500 500
+for_window [class="Pavucontrol"] move window absolute position center
+
+
+# - Media Keys -
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
+
+# - Scripts -
+exec --no-startup-id conky &
+exec --no-startup-id compton --config ~/.config/compton/compton.conf &
+exec --no-startup-id dunst &
+exec --no-startup-id xrandr -s 1024x768
+exec --no-startup-id xrdb ~/.Xresources &
+exec --no-startup-id feh --bg-fill ~/.bg.jpg &
+# exec --no-startup-id redshift -l42:71 &
+# exec --no-startup-id ~/.bin/bat-notify &
