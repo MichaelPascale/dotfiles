@@ -1,0 +1,14 @@
+:root {
+  --ls-font-family: Crimson Pro, sans-serif;
+}
+
+.block-content, .editor-inner textarea {
+  	font-weight: 400;
+  
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    text-align: justify;
+    hyphens: auto;
+    word-wrap: break-word;
+}
